@@ -1,0 +1,14 @@
+{% extends 'commeninfo/home.html' %}
+
+{% block content %}
+
+    <p class="lead">all users</p>
+    <br\>
+    {% for user in user_list %}
+        <ul>
+            <li>
+                Username: {{ user }} - Date of Birth: {{ user.date_of_birth}} - UniqueID: {{ user.uniqueID}}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'commeninfo/home.html' %}
+
+{% block content %}
+
+    <p class="lead">check if you are registered</p>
+    <form action="{% url 'fetch' %}" method="post">
+        {% csrf_token %}
+        <input name="q" type="text" placeholder="please enter your uniqueID">
+        <button type="submit" class="btn btn-outline-secondary">Search</button>
+    </form>
+
+    <br/>
+    {% if searched %}
+        {% if userinfos %}
+            <p class="lead">User Info</p>
+            {% for userinfo in userinfos %}
+                username: {{ userinfo.username }}<br/>
+                uniqueID: {{ userinfo.uniqueID }}<br/>
+                date_of_birth: {{ userinfo.date_of_birth }}<br/>
+            {% endfor %}
+        {% else %}
+            <a href="{% url 'add' %}">you must register...!!!</a>
+        {% endif %}        
+        
+    {% endif %}
+ 
+{% endblock %}

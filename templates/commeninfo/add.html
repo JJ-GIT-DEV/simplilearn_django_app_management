@@ -1,0 +1,22 @@
+{% extends 'commeninfo/home.html' %}
+
+{% block content %}
+
+    <p class="lead">registration page</p>
+ 
+    {% if submitted %}
+        Your registration was submitted Successfully!!!!
+    {% else %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-secondary" >
+
+        </form>
+    {% endif %}
+
+
+
+{% endblock %}

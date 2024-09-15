@@ -1,0 +1,15 @@
+{% extends 'commeninfo/home.html' %}
+
+{% block content %}
+
+    <h2>search_users</h2>
+    <br/>
+    <br/>
+
+    {% if userinfo %}
+        You are userinfo for {{ userinfo }}<br/>
+    {% else %}
+        You forgot to search...
+    {% endif %}
+
+{% endblock %}
